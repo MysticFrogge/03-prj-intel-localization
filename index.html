@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Intel: Sustainability Through the Ages</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -14,12 +15,12 @@
       <!-- Ask Copilot to teach you about `.svg`. 🙂 You'll need to resize the logo with CSS. -->
       <img src="img/intel-header-logo.svg" alt="Intel Logo" />
       <!-- Main Heading -->
-      <h1>
+      <h1 data-i18n="heroTitle">
         Sustainability Through the Ages
       </h1>
 
       <!-- Subheading / Description -->
-      <p>
+      <p data-i18n="heroSubtitle">
         Explore Intel's journey through time, discovering how our commitment
         to innovation has shaped a more sustainable future for technology 
         and our planet.
@@ -28,7 +29,7 @@
   </header>
 
   <!-- Timeline Cards Section - Show on large screens only -->
-  <section class="timeline-section d-none d-lg-block">
+  <section class="timeline-section">
     <div class="timeline-wrapper">
       <div class="timeline-track" aria-hidden="true"></div>
       <div class="timeline-points">
@@ -44,7 +45,7 @@
       </div>
     </div>
 
-    <div class="timeline-message" id="timelineMessage">
+    <div class="timeline-message" id="timelineMessage" data-i18n="timelinePrompt">
       Click a year on the timeline to view Intel's sustainability story for that moment.
     </div>
 
@@ -63,26 +64,30 @@
     </div>
   </section>
 
-  <p class="d-none d-lg-block">Scroll to view timeline | Hover over cards to learn more!</p>
-
   <!-- Expandable Boxes Section - Show on smaller screens only -->
-  <section class="expandable-section d-lg-none py-5 bg-light">
+  <section class="expandable-section py-5 bg-light">
     <div class="container">
-      <h2 class="text-center mb-4">Intel's Sustainability Pillars</h2>
+      <h2 class="text-center mb-4" data-i18n="pillarsTitle">
+        Intel's Sustainability Pillars
+      </h2>
       <div class="expandable-boxes-wrapper">
         
         <!-- Expandable Box 1 -->
         <div class="expandable-box">
           <button class="expandable-header" type="button" data-box="box1">
-            <h3>RISE Strategy</h3>
+            <h3 data-i18n="box1Title">
+              RISE Strategy
+            </h3>
             <span class="toggle-icon">+</span>
           </button>
           <div class="expandable-content" id="box1">
             <div class="content-inner">
-              <p>
+              <p data-i18n="box1Text">
                 In 2020, Intel would launch its RISE (Responsible, Inclusive, Sustainable, Enabling) strategy and share its 2030 goals. With this, Intel was aiming to drive industry-wide progress on climate action, water stewardship, and waste reduction sooner rather than later. 2020 was a time of great strife for a lot of people, and yet despite us being physically apart, there was a general sense of togetherness as we all navigated those unprecedented times. It was this spirit of togetherness that Intel hoped to harness not just for the good of the company or the people living in the present, but for the good of the planet and the generations to come that would inherit it.
               </p>
-              <a href="#" class="btn btn-primary btn-sm">Learn More</a>
+              <a href="#" class="btn btn-primary btn-sm" data-i18n="learnMore">
+                Learn More
+              </a>
             </div>
           </div>
         </div>
@@ -90,15 +95,19 @@
         <!-- Expandable Box 2 -->
         <div class="expandable-box">
           <button class="expandable-header" type="button" data-box="box2">
-            <h3>Commitment</h3>
+            <h3 data-i18n="box2Title">
+              Commitment
+            </h3>
             <span class="toggle-icon">+</span>
           </button>
           <div class="expandable-content" id="box2">
             <div class="content-inner">
-              <p>
+              <p data-i18n="box2Text">
                 In the 2 years since launching the RISE strategy, Intel had already begun to lay the groundwork for the promised goals. Intel would announce its ambitious commitment to achieve net-zero greenhouse gas emissions (Scope 1 and 2) across its global operations by 2040, building upon the foundation of years of environmental initiatives.
               </p>
-              <a href="#" class="btn btn-primary btn-sm">Learn More</a>
+              <a href="#" class="btn btn-primary btn-sm" data-i18n="learnMore">
+                Learn More
+              </a>
             </div>
           </div>
         </div>
@@ -106,23 +115,30 @@
         <!-- Expandable Box 3 -->
         <div class="expandable-box">
           <button class="expandable-header" type="button" data-box="box3">
-            <h3>Water &amp; Waste</h3>
+            <h3 data-i18n="box3Title">
+              Water &amp; Waste
+            </h3>
             <span class="toggle-icon">+</span>
           </button>
           <div class="expandable-content" id="box3">
             <div class="content-inner">
-              <p>
+              <p data-i18n="box3Text">
                 Intel conserves billions of gallons of water annually and 
                 collaborates with local communities to restore watersheds.
                 Intel also upcycles and recycles materials to reduce waste and 
                 advance a circular economy.
               </p>
-              <a href="#" class="btn btn-primary btn-sm">Learn More</a>
+              <a href="#" class="btn btn-primary btn-sm" data-i18n="learnMore">
+                Learn More
+              </a>
             </div>
           </div>
         </div>
 
       </div>
+      <p class="expandable-hint" data-i18n="expandableHint">
+        Click on a box to learn more about Intel's commitment to sustainability.
+      </p>
     </div>
   </section>
 
@@ -172,58 +188,70 @@
     const message = document.getElementById('timelineMessage');
 
     const timelineData = {
-      '1968': {
-        title: 'The founding of Intel',
-        text: 'Robert Noyce and Gordon Moore, two Silicon Valley legends, filed the paperwork to form a new company by the name of NM Electronics after resigning from their positions at the wildly sucessfull Fairchild Semiconductors. They felt that the business was not reinvesting enough of their proceeds into the development and expansion of semiconductor technologies, and so sought to form a new company with innovation at its core. This company, after a quick rebranding, would become the Intel we are all familiar with today.',
-        image: 'img/twofoundnewfirm.png',
-        alt: 'Historical photo of intel founding announcement.',
-        secondaryImage: 'img/intel-50th-anniversary-2018-09.jpg',
-        secondaryAlt: 'Intel 50th anniversary celebration event image.'
+      en: {
+        '1968': { title: 'The founding of Intel', text: 'Robert Noyce and Gordon Moore, two Silicon Valley legends, filed the paperwork to form a new company by the name of NM Electronics after resigning from their positions at the wildly sucessfull Fairchild Semiconductors. They felt that the business was not reinvesting enough of their proceeds into the development and expansion of semiconductor technologies, and so sought to form a new company with innovation at its core. This company, after a quick rebranding, would become the Intel we are all familiar with today.', image: 'img/twofoundnewfirm.png', alt: 'Historical photo of intel founding announcement.', secondaryImage: 'img/intel-50th-anniversary-2018-09.jpg', secondaryAlt: 'Intel 50th anniversary celebration event image.' },
+        '1971': { title: 'First Microprocessor', text: 'At this time, all processor chips had their logic programming custom-built into their actual physical architecture. In 1971, Intel changed this, and as a result changed technology forever. Enter, the 4004, the world\'s first commercial microprocessor, igniting the microprocessor revolution and propelling the future of computing devices. Unlike previous processors, the 4004 could be mass produced and then programmed through its software to perform whatever specific function was needed, rather than being hardwired to perform a single task. In one fell swoop, Intel had made computing both cheaper and more powerful.', image: 'img/intelAd.png', alt: 'Vintage Intel advertisement showing early microprocessor technology.' },
+        '1978': { title: 'Launch of the 8086 Processor', text: 'Now that computing had become more accessible, it was time to start upping the power. Enter, the 8086 processor. Establishing the x86 architecture that drives countless PCs and servers in the modern era, this processor allowed for much more demanding and complex computing with the standard model clocking in at 5 MHz. To put this technological leap into perspective, the computers that had landed Neil Armstrong on the moon only 9 years prior had been limited to speeds of around 0.043 MHz.', image: 'img/Intel_C8086.jpg', alt: 'Intel 8086 processor promotional image.' },
+        '1985': { title: 'Launch of the 386 Processor', text: '1985 would mark an important milestone for Intel and personal computers. Intel would release the 386 processor, their first 32-bit processor in their PC lineup. This new processor would reach speeds up to 16 MHz, tripling the performance of the 8086 from just 7 years prior. This chip would usher in a new era of performance and multitasking for personal computers and a new era for Intel.', image: 'img/I386.png', alt: 'Intel 386 processor promotional image.' },
+        '2006': { title: 'Peak GHG Emissions', text: 'This year marks Intel\'s highest annual greenhouse gas emissions for operations. Upon this realization, Intel would begin to heavily invest in chemical abatement, renewable energy, and energy-efficient manufacturing in an attempt to reverse this concerning and dangerous upward trend.' },
+        '2020': { title: 'RISE Strategy', text: 'In 2020, Intel would launch its RISE (Responsible, Inclusive, Sustainable, Enabling) strategy and share its 2030 goals. With this, Intel was aiming to drive industry-wide progress on climate action, water stewardship, and waste reduction sooner rather than later. 2020 was a time of great strife for a lot of people, and yet despite us being physically apart, there was a general sense of togetherness as we all navigated those unprecedented times. It was this spirit of togetherness that Intel hoped to harness not just for the good of the company or the people living in the present, but for the good of the planet and the generations to come that would inherit it.' },
+        '2022': { title: 'Net-Zero By 2040', text: 'In the 2 years since launching the RISE strategy, Intel had already begun to lay the groundwork for the promised goals. Intel would announce its ambitious commitment to achieve net-zero greenhouse gas emissions (Scope 1 and 2) across its global operations by 2040, building upon the foundation of years of environmental initiatives.' },
+        '2023': { title: 'Renewable Electricity', text: 'In 2023, only a short 3 years after the introduction of the RISE strategy, Intel would achieve a massive milestone of 99% renewable electricity usage worldwide, helping to drastically lower carbon emissions and driving progress toward Intel\'s long-term sustainability goals.' },
+        '2024': { title: 'Sustainability Summit', text: 'In 2024, Intel would host its first ever Sustainability Summit, uniting suppliers, government officials, and industry leaders to collaborate on next-generation sustainable semiconductor manufacturing.', secondaryImage: 'img/intelsummit.png', secondaryAlt: 'Intel Sustainability Summit event image.' }
       },
-      '1971': {
-        title: 'First Microprocessor',
-        text: 'At this time, all processor chips had their logic programming custom-built into their actual physical architecture. In 1971, Intel changed this, and as a result changed technology forever. Enter, the 4004, the world\'s first commercial microprocessor, igniting the microprocessor revolution and propelling the future of computing devices. Unlike previous processors, the 4004 could be mass produced and then programmed through its softward to perform whatever specific function was needed, rather than being hardwired to perform a single task. In one fell swoop, Intel had made computing both cheaper and more powerful.',
-        image: 'img/intelAd.png',
-        alt: 'Vintage Intel advertisement showing early microprocessor technology.'
+      ar: {
+        '1968': { title: 'تأسيس إنتل', text: 'قدّم روبرت نويس وجوردون مور، أسطورتان في وادي السيليكون، أوراق تأسيس شركة جديدة باسم NM Electronics بعد استقالتهما من شركة Fairchild Semiconductors. شعرا بأن الشركة لا تُعيد استثمار عائداتها في تطوير تقنيات أشباه الموصلات، فسعيا إلى تأسيس شركة تجعل الابتكار في صميمها. هذه الشركة، بعد إعادة تسمية سريعة، أصبحت إنتل التي نعرفها اليوم.' },
+        '1971': { title: 'أول معالج دقيق', text: 'في ذلك الوقت، كانت جميع رقائق المعالج مبرمجة منطقيًا في بنيتها المادية. في عام 1971، غيّرت إنتل هذا الواقع وغيّرت التكنولوجيا إلى الأبد. ظهر المعالج 4004، أول معالج دقيق تجاري في العالم، مما أشعل ثورة المعالجات الدقيقة. وخلافًا للمعالجات السابقة، يمكن إنتاج 4004 بكميات كبيرة وبرمجته لأداء أي وظيفة محددة بدلاً من تنفيذ مهمة واحدة ثابتة.', image: 'img/intelAd.png', alt: 'إعلان إنتل قديم يظهر تقنية المعالجات المبكرة.' },
+        '1978': { title: 'إطلاق معالج 8086', text: 'مع أن الحوسبة أصبحت أكثر سهولة في الوصول، حان وقت رفع مستوى الأداء. ظهر معالج 8086 الذي أرسى بنية x86 التي تشغّل عدداً لا يحصى من أجهزة الحاسوب والخوادم في العصر الحديث، بسرعة 5 ميغاهرتز. للمقارنة، كانت حواسيب إنزال نيل أرمسترونغ على القمر قبل 9 سنوات فقط محدودة بسرعات حوالي 0.043 ميغاهرتز.', image: 'img/Intel_C8086.jpg', alt: 'صورة ترويجية لمعالج Intel 8086.' },
+        '1985': { title: 'إطلاق معالج 386', text: 'شكّل عام 1985 معلمًا مهمًا لإنتل والحواسيب الشخصية. أطلقت إنتل معالج 386، وهو أول معالج 32 بت في خطها للحواسيب الشخصية، بسرعات تصل إلى 16 ميغاهرتز، أي ثلاثة أضعاف أداء معالج 8086 خلال 7 سنوات فقط.', image: 'img/I386.png', alt: 'صورة ترويجية لمعالج Intel 386.' },
+        '2006': { title: 'ذروة انبعاثات الغازات الدفيئة', text: 'يمثل هذا العام أعلى مستوى سنوي لانبعاثات الغازات الدفيئة في عمليات إنتل. بعد إدراك ذلك، بدأت إنتل في الاستثمار بكثافة في تقنيات الحد من الانبعاثات والطاقة المتجددة والتصنيع الموفر للطاقة.' },
+        '2020': { title: 'استراتيجية RISE', text: 'في عام 2020، أطلقت إنتل استراتيجية RISE وشاركت أهدافها لعام 2030، بهدف دفع التقدم على مستوى الصناعة في مجال المناخ وإدارة المياه وتقليل النفايات. كان عام 2020 وقتًا عصيبًا، غير أن روح التضامن التي سادت هي ما سعت إنتل إلى توظيفه لخير الكوكب والأجيال القادمة.' },
+        '2022': { title: 'صافي انبعاثات صفري بحلول 2040', text: 'في غضون عامين من إطلاق الاستراتيجية، أعلنت إنتل التزامها الطموح بتحقيق صافي انبعاثات صفري من غازات الدفيئة (النطاق 1 و2) عبر عملياتها العالمية بحلول عام 2040.' },
+        '2023': { title: 'الكهرباء المتجددة', text: 'في عام 2023، حققت إنتل إنجازًا ضخمًا بالوصول إلى 99% من استخدام الكهرباء المتجددة على مستوى العالم، مما ساعد في خفض انبعاثات الكربون بشكل كبير.' },
+        '2024': { title: 'قمة الاستدامة', text: 'في عام 2024، نظّمت إنتل قمة الاستدامة الأولى من نوعها، جامعةً الموردين والمسؤولين الحكوميين وقادة الصناعة للتعاون في تصنيع أشباه الموصلات المستدام من الجيل التالي.', secondaryImage: 'img/intelsummit.png', secondaryAlt: 'صورة من قمة إنتل للاستدامة.' }
       },
-      '1978': {
-        title: 'Launch of the 8086 Processor',
-        text: 'Now that computing had become more accessible, it was time to start upping the power. Enter, the 8086 processor. Establishing the x86 architecture that drives countless PCs and servers in the modern era, this processor allowed for much more demanding and complex computing with the standard model clocking in at 5 MHz. To put this technological leap into perspective, the computers that had landed Neil Armstrong on the moon only 9 years prior had been limited to speeds of around 0.043 MHz.',
-        image: 'img/Intel_C8086.jpg',
-        alt: 'Intel 8086 processor promotional image.'
+      he: {
+        '1968': { title: 'ייסוד אינטל', text: 'רוברט נויס וגורדון מור, שני אגדות עמק הסיליקון, הגישו את מסמכי הקמת חברה חדשה בשם NM Electronics לאחר שהתפטרו מ-Fairchild Semiconductors. הם חשו שהחברה אינה משקיעה מספיק מהכנסותיה בפיתוח טכנולוגיות המוליכים למחצה, ולכן ביקשו להקים חברה חדשה עם חדשנות בליבה. חברה זו, לאחר מיתוג מחדש מהיר, הפכה לאינטל שאנו מכירים היום.' },
+        '1971': { title: 'המיקרו-מעבד הראשון', text: 'באותה עת, כל שבבי המעבד נבנו עם לוגיקה מותאמת בארכיטקטורה הפיזית שלהם. ב-1971, אינטל שינתה זאת ושינתה את הטכנולוגיה לנצח. הוצג ה-4004, המיקרו-מעבד המסחרי הראשון בעולם. בניגוד למעבדים קודמים, ניתן היה לייצר אותו בכמויות גדולות ולתכנתו לביצוע כל פונקציה נדרשת.', image: 'img/intelAd.png', alt: 'פרסומת אינטל וינטאג\' המציגה טכנולוגיית מיקרו-מעבד מוקדמת.' },
+        '1978': { title: 'השקת מעבד 8086', text: 'כעת שהמחשוב הפך נגיש יותר, הגיע הזמן להגביר את הביצועים. הוצג מעבד ה-8086 שביסס את ארכיטקטורת x86 המניעה מחשבים ושרתים רבים בעידן המודרני, במהירות 5 מגה-הרץ. להשוואה, מחשבי הנחתת נייל ארמסטרונג על הירח רק 9 שנים קודם לכן הוגבלו למהירויות של כ-0.043 מגה-הרץ.', image: 'img/Intel_C8086.jpg', alt: 'תמונה פרסומית של מעבד Intel 8086.' },
+        '1985': { title: 'השקת מעבד 386', text: 'שנת 1985 סימנה אבן דרך חשובה לאינטל ולמחשבים האישיים. אינטל שחררה את מעבד 386, המעבד הראשון שלה ב-32 ביט, שהגיע למהירויות של עד 16 מגה-הרץ — פי שלושה מביצועי ה-8086 רק 7 שנים קודם לכן.', image: 'img/I386.png', alt: 'תמונה פרסומית של מעבד Intel 386.' },
+        '2006': { title: 'שיא פליטות גזי חממה', text: 'שנה זו מסמנת את רמת פליטות גזי החממה השנתית הגבוהה ביותר של אינטל. לאחר הבנה זו, אינטל החלה להשקיע רבות בצמצום כימי, אנרגיה מתחדשת וייצור חסכוני באנרגיה.' },
+        '2020': { title: 'אסטרטגיית RISE', text: 'בשנת 2020, השיקה אינטל את אסטרטגיית RISE ושיתפה את יעדיה לשנת 2030, במטרה לקדם התקדמות בכל הענף בנושא פעולה אקלימית, ניהול מים והפחתת פסולת. 2020 הייתה תקופה קשה, אך רוח הסולידריות שאפיינה אותה היא שאינטל ביקשה לרתום לטובת הכוכב והדורות הבאים.' },
+        '2022': { title: 'פליטות נטו-אפס עד 2040', text: 'תוך שנתיים מהשקת האסטרטגיה, הכריזה אינטל על מחויבותה השאפתנית להשיג פליטות גז חממה נטו-אפס (היקף 1 ו-2) בכל פעילויותיה הגלובליות עד שנת 2040.' },
+        '2023': { title: 'חשמל מתחדש', text: 'בשנת 2023, השיגה אינטל אבן דרך מרשימה של 99% שימוש בחשמל מתחדש ברחבי העולם, מה שסייע להפחתה משמעותית של פליטות פחמן.' },
+        '2024': { title: 'פסגת הקיימות', text: 'בשנת 2024, אינטל אירחה את פסגת הקיימות הראשונה שלה, שאיחדה ספקים, פקידי ממשל ומנהיגי תעשייה לשיתוף פעולה בייצור מוליכים למחצה בני-קיימא מהדור הבא.', secondaryImage: 'img/intelsummit.png', secondaryAlt: 'תמונה מפסגת הקיימות של אינטל.' }
       },
-      '1985': {
-        title: 'Launch of the 386 Processor',
-        text: '1985 would mark an important milestone for Intel and personal computers. Intel would release the 386 processor, their first 32-bit processor in their PC lineup. This new processor would reach speeds up to 16 MHz, tripling the performance of the 8086 from just 7 years prior. This chip would usher in a new era of performance and multitasking for personal computers and a new era for Intel.',
-        image: 'img/I386.png',
-        alt: 'Intel 386 processor promotional image.'
+      fr: {
+        '1968': { title: 'La fondation d\'Intel', text: 'Robert Noyce et Gordon Moore, deux légendes de la Silicon Valley, ont déposé les documents pour créer une nouvelle société appelée NM Electronics après avoir démissionné de Fairchild Semiconductors. Ils estimaient que l\'entreprise ne réinvestissait pas suffisamment dans le développement des technologies des semi-conducteurs, et ont donc cherché à fonder une nouvelle société avec l\'innovation au cœur. Cette société, après un rapide changement de nom, est devenue l\'Intel que nous connaissons aujourd\'hui.', image: 'img/twofoundnewfirm.png', alt: 'Photo historique de l\'annonce de fondation d\'Intel.', secondaryImage: 'img/intel-50th-anniversary-2018-09.jpg', secondaryAlt: 'Image de l\'événement du 50e anniversaire d\'Intel.' },
+        '1971': { title: 'Premier microprocesseur', text: 'À cette époque, tous les processeurs avaient leur logique intégrée dans leur architecture physique. En 1971, Intel a changé cela et a transformé la technologie pour toujours. Voici le 4004, le premier microprocesseur commercial au monde. Contrairement aux processeurs précédents, le 4004 pouvait être produit en masse et programmé pour effectuer n\'importe quelle fonction spécifique.', image: 'img/intelAd.png', alt: 'Publicité Intel vintage montrant la technologie des premiers microprocesseurs.' },
+        '1978': { title: 'Lancement du processeur 8086', text: 'Maintenant que l\'informatique était devenue plus accessible, il était temps d\'augmenter la puissance. Voici le processeur 8086, établissant l\'architecture x86 qui anime d\'innombrables PC et serveurs à l\'ère moderne, cadencé à 5 MHz. Pour mettre ce bond technologique en perspective, les ordinateurs qui avaient amené Neil Armstrong sur la lune seulement 9 ans auparavant étaient limités à des vitesses d\'environ 0,043 MHz.', image: 'img/Intel_C8086.jpg', alt: 'Image promotionnelle du processeur Intel 8086.' },
+        '1985': { title: 'Lancement du processeur 386', text: '1985 marquait une étape importante pour Intel et les ordinateurs personnels. Intel a lancé le processeur 386, son premier processeur 32 bits, atteignant des vitesses jusqu\'à 16 MHz — trois fois les performances du 8086 seulement 7 ans auparavant.', image: 'img/I386.png', alt: 'Image promotionnelle du processeur Intel 386.' },
+        '2006': { title: 'Pic des émissions de GES', text: 'Cette année marque les émissions annuelles de gaz à effet de serre les plus élevées d\'Intel. Suite à cette prise de conscience, Intel a commencé à investir massivement dans la réduction chimique, les énergies renouvelables et la fabrication économe en énergie.' },
+        '2020': { title: 'Stratégie RISE', text: 'En 2020, Intel a lancé sa stratégie RISE et partagé ses objectifs pour 2030, visant à stimuler des progrès à l\'échelle de l\'industrie en matière d\'action climatique, de gestion de l\'eau et de réduction des déchets. 2020 était une période difficile, mais c\'est cet esprit de solidarité qu\'Intel a voulu exploiter pour le bien de la planète et des générations futures.' },
+        '2022': { title: 'Zéro émission nette d\'ici 2040', text: 'Dans les 2 ans suivant le lancement de la stratégie RISE, Intel a annoncé son engagement ambitieux d\'atteindre zéro émission nette de gaz à effet de serre (Scope 1 et 2) dans toutes ses opérations mondiales d\'ici 2040.' },
+        '2023': { title: 'Électricité renouvelable', text: 'En 2023, Intel a atteint l\'objectif majeur de 99 % d\'utilisation d\'électricité renouvelable dans le monde entier, contribuant à réduire considérablement les émissions de carbone.' },
+        '2024': { title: 'Sommet sur la durabilité', text: 'En 2024, Intel a organisé son tout premier Sommet sur la durabilité, réunissant fournisseurs, responsables gouvernementaux et dirigeants industriels pour collaborer sur la fabrication durable de semi-conducteurs de prochaine génération.', secondaryImage: 'img/intelsummit.png', secondaryAlt: 'Image de l\'événement du Sommet de durabilité d\'Intel.' }
       },
-      '2006': {
-        title: 'Peak GHG Emissions',
-        text: 'This year marks Intel\'s highest annual greenhouse gas emissions for operations. Upon this realization, Intel would begin to heavily investin chemical abatement, renewable energy, and energy-efficient manufacturing in an attempt to reverse this concerning and dangerous upward trend.'
-      },
-      '2020': {
-        title: 'RISE Strategy',
-        text: 'In 2020, Intel would launch its RISE (Responsible, Inclusive, Sustainable, Enabling) strategy and share its 2030 goals. With this, Intel was aiming to drive industry-wide progress on climate action, water stewardship, and waste reduction sooner rather than later. 2020 was a time of great strife for a lot of people, and yet despite us being physically apart, there was a general sense of togetherness as we all navigated those unprecedented times. It was this spirit of togetherness that Intel hoped to harness not just for the good of the company or the people living in the present, but for the good of the planet and the generations to come that would inherit it.'
-      },
-      '2022': {
-        title: 'Net-Zero By 2040',
-        text: 'In the 2 years since launching the RISE strategy, Intel had already begun to lay the groundwork for the promised goals. Intel would announce its ambitious commitment to achieve net-zero greenhouse gas emissions (Scope 1 and 2) across its global operations by 2040, building upon the foundation of years of environmental initiatives.'
-      },
-      '2023': {
-        title: 'Renewable Electricity',
-        text: 'In 2023, only a short 3 years after the introduction of the RISE strategy, Intel would achieve a massive milestone of 99% renewable electricity usage worldwide, helping to drastically lower carbon emissions and driving progress toward Intel\'s long-term sustainability goals.'
-      },
-      '2024': {
-        title: 'Sustainability Summit',
-        text: 'In 2024, Intel would host its first ever Sustainability Summit, uniting suppliers, government officials, and industry leaders to collaborate on next-generation sustainable semiconductor manufacturing.',
-        secondaryImage: 'img/intelsummit.png',
-        secondaryAlt: 'Intel Sustainability Summit event image.'
+      ja: {
+        '1968': { title: 'インテルの設立', text: 'シリコンバレーの伝説、ロバート・ノイスとゴードン・ムーアは、フェアチャイルド・セミコンダクターを退職後、NMエレクトロニクスという新会社を設立する書類を提出しました。彼らは同社が半導体技術の開発に十分な再投資をしていないと感じ、イノベーションを核心に置く新会社を設立しようとしました。この会社は、素早いリブランディングを経て、今日私たちが知るインテルになりました。', image: 'img/twofoundnewfirm.png', alt: 'インテル設立発表の歴史的写真。', secondaryImage: 'img/intel-50th-anniversary-2018-09.jpg', secondaryAlt: 'インテル50周年記念イベントの画像。' },
+        '1971': { title: '初のマイクロプロセッサ', text: '当時、すべてのプロセッサチップはロジックが物理的なアーキテクチャに組み込まれていました。1971年、インテルはこれを変え、テクノロジーを永遠に変革しました。世界初の商業用マイクロプロセッサ「4004」が登場し、マイクロプロセッサ革命に火をつけました。以前のプロセッサとは異なり、4004は大量生産が可能で、必要な特定機能を実行するようにソフトウェアでプログラムできました。', image: 'img/intelAd.png', alt: '初期マイクロプロセッサ技術を示すヴィンテージのインテル広告。' },
+        '1978': { title: '8086プロセッサの発売', text: 'コンピューティングがより身近になったので、パワーを高める時が来ました。8086プロセッサが登場し、現代の無数のPCやサーバーを動かすx86アーキテクチャを確立しました。標準モデルは5MHzで動作しました。この技術的飛躍を理解するために、わずか9年前にニール・アームストロングを月に着陸させたコンピュータは約0.043MHzに制限されていました。', image: 'img/Intel_C8086.jpg', alt: 'Intel 8086プロセッサのプロモーション画像。' },
+        '1985': { title: '386プロセッサの発売', text: '1985年はインテルとパーソナルコンピュータにとって重要なマイルストーンとなりました。インテルは386プロセッサをリリースし、PCラインナップ初の32ビットプロセッサとなりました。このプロセッサは最大16MHzの速度に達し、わずか7年前の8086の3倍のパフォーマンスを発揮しました。', image: 'img/I386.png', alt: 'Intel 386プロセッサのプロモーション画像。' },
+        '2006': { title: 'GHG排出量のピーク', text: 'この年はインテルの事業における年間温室効果ガス排出量が最高を記録しました。この認識から、インテルは化学的削減、再生可能エネルギー、省エネ製造への大規模投資を開始しました。' },
+        '2020': { title: 'RISE戦略', text: '2020年、インテルはRISE戦略を開始し、2030年の目標を共有しました。気候変動対策、水管理、廃棄物削減において業界全体の進歩を推進することを目指していました。2020年は困難な時代でしたが、その連帯の精神こそをインテルは地球と将来の世代のために活用しようとしました。' },
+        '2022': { title: '2040年までのネットゼロ', text: 'RISE戦略開始から2年以内に、インテルは2040年までにグローバル事業全体でスコープ1および2の温室効果ガスのネットゼロ排出を達成するという野心的なコミットメントを発表しました。' },
+        '2023': { title: '再生可能電力', text: '2023年、RISE戦略導入からわずか3年で、インテルは世界中で99%の再生可能電力使用という大きなマイルストーンを達成し、炭素排出量の大幅削減に貢献しました。' },
+        '2024': { title: 'サステナビリティサミット', text: '2024年、インテルは初のサステナビリティサミットを開催し、サプライヤー、政府関係者、業界リーダーを集めて次世代の持続可能な半導体製造について協力しました。', secondaryImage: 'img/intelsummit.png', secondaryAlt: 'インテルサステナビリティサミットのイベント画像。' }
       }
     };
 
+    let currentLang = 'en';
+
     function showCard(year) {
-      const data = timelineData[year];
+      const langData = timelineData[currentLang] || timelineData['en'];
+      const data = langData[year];
+      if (!data) return;
+
       cardYear.textContent = year;
       cardTitle.textContent = data.title;
       cardText.textContent = data.text;
@@ -262,56 +290,256 @@
       });
     });
   </script>
-</body>
-</html>
 
-  <!-- 3-Column Content Section - Show on large screens only -->
-  <section class="py-5 bg-light d-none d-lg-block">
-    <div class="container">
-      <div class="row g-4">
-        
-        <!-- Column 1 -->
-        <div class="col-md-4">
-          <div class="card h-100 shadow-sm">
-            <div class="card-body">
-              <h2 class="card-title h4">RISE Strategy</h2>
-              <p class="card-text">
-                In 2020, Intel would launch its RISE (Responsible, Inclusive, Sustainable, Enabling) strategy and share its 2030 goals. With this, Intel was aiming to drive industry-wide progress on climate action, water stewardship, and waste reduction sooner rather than later. 2020 was a time of great strife for a lot of people, and yet despite us being physically apart, there was a general sense of togetherness as we all navigated those unprecedented times. It was this spirit of togetherness that Intel hoped to harness not just for the good of the company or the people living in the present, but for the good of the planet and the generations to come that would inherit it.
-              </p>
-              <a href="#" class="btn btn-primary mt-3">Learn More</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Column 2 -->
-        <div class="col-md-4">
-          <div class="card h-100 shadow-sm">
-            <div class="card-body">
-              <h2 class="card-title h4">Commitment</h2>
-              <p class="card-text">
-                In the 2 years since launching the RISE strategy, Intel had already begun to lay the groundwork for the promised goals. Intel would announce its ambitious commitment to achieve net-zero greenhouse gas emissions (Scope 1 and 2) across its global operations by 2040, building upon the foundation of years of environmental initiatives.
-              </p>
-              <a href="#" class="btn btn-primary mt-3">Learn More</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Column 3 -->
-        <div class="col-md-4">
-          <div class="card h-100 shadow-sm">
-            <div class="card-body">
-              <h2 class="card-title h4">Water &amp; Waste</h2>
-              <p class="card-text">
-                Intel conserves billions of gallons of water annually and 
-                collaborates with local communities to restore watersheds.
-                Intel also upcycles and recycles materials to reduce waste and 
-                advance a circular economy.
-              </p>
-              <a href="#" class="btn btn-primary mt-3">Learn More</a>
-            </div>
-          </div>
-        </div>
-
+  <!-- Newsletter Subscription Section -->
+  <section class="newsletter-section">
+    <div class="newsletter-inner">
+      <h2 class="newsletter-title" data-i18n="newsletterTitle">
+        Stay in the Loop
+      </h2>
+      <p class="newsletter-subtitle" data-i18n="newsletterSubtitle">
+        Subscribe to Intel's Sustainability Newsletter for the latest updates.
+      </p>
+      <div class="newsletter-form">
+        <input type="email" class="newsletter-input" placeholder="Enter your email address" id="newsletterEmail" />
+        <button class="newsletter-btn" type="button" id="newsletterBtn" data-i18n="subscribeBtn">
+          Subscribe
+        </button>
       </div>
+      <p class="newsletter-confirmation" id="newsletterConfirmation" data-i18n="newsletterConfirmation">
+        ✔ You're subscribed! Thank you for supporting a sustainable future.
+      </p>
     </div>
   </section>
+
+  <script>
+    document.getElementById('newsletterBtn').addEventListener('click', () => {
+      const email = document.getElementById('newsletterEmail').value.trim();
+      if (email && email.includes('@')) {
+        document.getElementById('newsletterConfirmation').classList.add('visible');
+        document.getElementById('newsletterEmail').value = '';
+      } else {
+        document.getElementById('newsletterEmail').style.borderColor = '#c0392b';
+        document.getElementById('newsletterEmail').placeholder = 'Please enter a valid email';
+      }
+    });
+  </script>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p class="footer-copyright" data-i18n="footerCopyright">
+        © 2024 Intel Corporation. All rights reserved.
+      </p>
+      <nav class="footer-links">
+        <a href="#" data-i18n="privacyPolicy">Privacy Policy</a>
+        <a href="#" data-i18n="termsOfUse">Terms of Use</a>
+        <a href="#" data-i18n="contactUs">Contact Us</a>
+        <a href="#" data-i18n="sustainabilityReport">Sustainability Report</a>
+        <a href="#" data-i18n="sitemap">Sitemap</a>
+      </nav>
+    </div>
+  </footer>
+
+  <div class="lang-switcher" id="langSwitcher">
+    <div class="lang-selected" id="langSelected">
+      <span id="langLabel">EN</span>
+      <span class="lang-arrow">▼</span>
+    </div>
+    <div class="lang-dropdown" id="langDropdown">
+      <button class="lang-option active" data-lang="en">EN — English</button>
+      <button class="lang-option" data-lang="ar">AR — العربية</button>
+      <button class="lang-option" data-lang="he">HE — עברית</button>
+      <button class="lang-option" data-lang="fr">FR — Français</button>
+      <button class="lang-option" data-lang="ja">JA — 日本語</button>
+    </div>
+  </div>
+
+  <script>
+  const translations = {
+    en: {
+      heroTitle: "Sustainability Through the Ages",
+      heroSubtitle: "Explore Intel's journey through time, discovering how our commitment to innovation has shaped a more sustainable future for technology and our planet.",
+      timelinePrompt: "Click a year on the timeline to view Intel's sustainability story for that moment.",
+      pillarsTitle: "Intel's Sustainability Pillars",
+      box1Title: "RISE Strategy",
+      box1Text: "In 2020, Intel would launch its RISE (Responsible, Inclusive, Sustainable, Enabling) strategy and share its 2030 goals. With this, Intel was aiming to drive industry-wide progress on climate action, water stewardship, and waste reduction sooner rather than later. 2020 was a time of great strife for a lot of people, and yet despite us being physically apart, there was a general sense of togetherness as we all navigated those unprecedented times. It was this spirit of togetherness that Intel hoped to harness not just for the good of the company or the people living in the present, but for the good of the planet and the generations to come that would inherit it.",
+      box2Title: "Commitment",
+      box2Text: "In the 2 years since launching the RISE strategy, Intel had already begun to lay the groundwork for the promised goals. Intel would announce its ambitious commitment to achieve net-zero greenhouse gas emissions (Scope 1 and 2) across its global operations by 2040, building upon the foundation of years of environmental initiatives.",
+      box3Title: "Water & Waste",
+      box3Text: "Intel conserves billions of gallons of water annually and collaborates with local communities to restore watersheds. Intel also upcycles and recycles materials to reduce waste and advance a circular economy.",
+      learnMore: "Learn More",
+      expandableHint: "Click on a box to learn more about Intel's commitment to sustainability.",
+      newsletterTitle: "Stay in the Loop",
+      newsletterSubtitle: "Subscribe to Intel's Sustainability Newsletter for the latest updates.",
+      emailPlaceholder: "Enter your email address",
+      subscribeBtn: "Subscribe",
+      newsletterConfirmation: "✔ You're subscribed! Thank you for supporting a sustainable future.",
+      footerCopyright: "© 2024 Intel Corporation. All rights reserved.",
+      privacyPolicy: "Privacy Policy",
+      termsOfUse: "Terms of Use",
+      contactUs: "Contact Us",
+      sustainabilityReport: "Sustainability Report",
+      sitemap: "Sitemap"
+    },
+    ar: {
+      heroTitle: "الاستدامة عبر العصور",
+      heroSubtitle: "استكشف رحلة إنتل عبر الزمن، واكتشف كيف أسهم التزامنا بالابتكار في تشكيل مستقبل أكثر استدامة للتكنولوجيا وكوكبنا.",
+      timelinePrompt: "انقر على سنة في الجدول الزمني لعرض قصة إنتل في مجال الاستدامة لتلك اللحظة.",
+      pillarsTitle: "ركائز الاستدامة لدى إنتل",
+      box1Title: "استراتيجية RISE",
+      box1Text: "في عام 2020، أطلقت إنتل استراتيجية RISE (المسؤولة، الشاملة، المستدامة، الممكِّنة) وشاركت أهدافها لعام 2030. وكانت إنتل تهدف إلى دفع التقدم على مستوى الصناعة في مجال العمل المناخي وإدارة المياه وتقليل النفايات.",
+      box2Title: "الالتزام",
+      box2Text: "في غضون عامين من إطلاق استراتيجية RISE، بدأت إنتل بالفعل في وضع الأسس للأهداف الموعودة، وأعلنت عن التزامها الطموح بتحقيق صافي انبعاثات صفري من غازات الدفيئة بحلول عام 2040.",
+      box3Title: "المياه والنفايات",
+      box3Text: "توفر إنتل مليارات الجالونات من المياه سنويًا وتتعاون مع المجتمعات المحلية لاستعادة مستجمعات المياه. كما تعيد إنتل تدوير المواد للحد من النفايات وتعزيز الاقتصاد الدائري.",
+      learnMore: "اعرف المزيد",
+      expandableHint: "انقر على مربع لمعرفة المزيد حول التزام إنتل بالاستدامة.",
+      newsletterTitle: "ابقَ على اطلاع",
+      newsletterSubtitle: "اشترك في نشرة إنتل للاستدامة للحصول على آخر التحديثات.",
+      emailPlaceholder: "أدخل عنوان بريدك الإلكتروني",
+      subscribeBtn: "اشترك",
+      newsletterConfirmation: "✔ تم اشتراكك! شكرًا لدعمك مستقبلًا مستدامًا.",
+      footerCopyright: "© 2024 شركة إنتل. جميع الحقوق محفوظة.",
+      privacyPolicy: "سياسة الخصوصية",
+      termsOfUse: "شروط الاستخدام",
+      contactUs: "اتصل بنا",
+      sustainabilityReport: "تقرير الاستدامة",
+      sitemap: "خريطة الموقع"
+    },
+    he: {
+      heroTitle: "קיימות לאורך הדורות",
+      heroSubtitle: "חקור את מסע אינטל לאורך הזמן, וגלה כיצד מחויבותנו לחדשנות עיצבה עתיד בר-קיימא יותר לטכנולוגיה ולכוכב הלכת שלנו.",
+      timelinePrompt: "לחץ על שנה בציר הזמן כדי לצפות בסיפור הקיימות של אינטל באותו רגע.",
+      pillarsTitle: "עמודי הקיימות של אינטל",
+      box1Title: "אסטרטגיית RISE",
+      box1Text: "בשנת 2020, השיקה אינטל את אסטרטגיית RISE (אחראית, מכלילה, בת-קיימא, מאפשרת) ושיתפה את יעדיה לשנת 2030. אינטל שאפה לקדם התקדמות בכל הענף בנושא פעולה אקלימית, ניהול מים והפחתת פסולת.",
+      box2Title: "מחויבות",
+      box2Text: "בתוך שנתיים מאז השקת אסטרטגיית RISE, אינטל כבר החלה להניח את הבסיס ליעדים שהובטחו, והכריזה על מחויבותה השאפתנית להשיג פליטות גז חממה נטו-אפס עד שנת 2040.",
+      box3Title: "מים ופסולת",
+      box3Text: "אינטל חוסכת מיליארדי ליטרים של מים מדי שנה ומשתפת פעולה עם קהילות מקומיות לשיקום אגני ניקוז. אינטל גם ממחזרת חומרים כדי להפחית פסולת ולקדם כלכלה מעגלית.",
+      learnMore: "למד עוד",
+      expandableHint: "לחץ על תיבה כדי ללמוד עוד על מחויבות אינטל לקיימות.",
+      newsletterTitle: "הישאר מעודכן",
+      newsletterSubtitle: "הירשם לניוזלטר הקיימות של אינטל לעדכונים האחרונים.",
+      emailPlaceholder: "הזן את כתובת הדוא\"ל שלך",
+      subscribeBtn: "הירשם",
+      newsletterConfirmation: "✔ נרשמת! תודה על תמיכתך בעתיד בר-קיימא.",
+      footerCopyright: "© 2024 Intel Corporation. כל הזכויות שמורות.",
+      privacyPolicy: "מדיניות פרטיות",
+      termsOfUse: "תנאי שימוש",
+      contactUs: "צור קשר",
+      sustainabilityReport: "דוח קיימות",
+      sitemap: "מפת אתר"
+    },
+    fr: {
+      heroTitle: "La durabilité à travers les âges",
+      heroSubtitle: "Explorez le parcours d'Intel à travers le temps, en découvrant comment notre engagement envers l'innovation a façonné un avenir plus durable pour la technologie et notre planète.",
+      timelinePrompt: "Cliquez sur une année de la chronologie pour voir l'histoire de durabilité d'Intel à ce moment-là.",
+      pillarsTitle: "Les piliers de durabilité d'Intel",
+      box1Title: "Stratégie RISE",
+      box1Text: "En 2020, Intel a lancé sa stratégie RISE (Responsable, Inclusive, Durable, Habilitante) et partagé ses objectifs pour 2030. Intel visait à stimuler des progrès à l'échelle de l'industrie en matière d'action climatique, de gestion de l'eau et de réduction des déchets.",
+      box2Title: "Engagement",
+      box2Text: "Dans les 2 ans suivant le lancement de la stratégie RISE, Intel avait déjà commencé à poser les bases des objectifs promis, annonçant son engagement ambitieux d'atteindre zéro émission nette de gaz à effet de serre d'ici 2040.",
+      box3Title: "Eau et déchets",
+      box3Text: "Intel économise des milliards de gallons d'eau chaque année et collabore avec les communautés locales pour restaurer les bassins versants. Intel recycle également des matériaux pour réduire les déchets et promouvoir une économie circulaire.",
+      learnMore: "En savoir plus",
+      expandableHint: "Cliquez sur une boîte pour en savoir plus sur l'engagement d'Intel en matière de durabilité.",
+      newsletterTitle: "Restez informé",
+      newsletterSubtitle: "Abonnez-vous à la newsletter de durabilité d'Intel pour les dernières mises à jour.",
+      emailPlaceholder: "Entrez votre adresse e-mail",
+      subscribeBtn: "S'abonner",
+      newsletterConfirmation: "✔ Vous êtes abonné ! Merci de soutenir un avenir durable.",
+      footerCopyright: "© 2024 Intel Corporation. Tous droits réservés.",
+      privacyPolicy: "Politique de confidentialité",
+      termsOfUse: "Conditions d'utilisation",
+      contactUs: "Nous contacter",
+      sustainabilityReport: "Rapport de durabilité",
+      sitemap: "Plan du site"
+    },
+    ja: {
+      heroTitle: "時代を超えた持続可能性",
+      heroSubtitle: "インテルの時代を超えた旅を探求し、イノベーションへの取り組みがテクノロジーと地球のより持続可能な未来をどのように形成してきたかを発見してください。",
+      timelinePrompt: "タイムラインの年をクリックして、その時点でのインテルの持続可能性の物語をご覧ください。",
+      pillarsTitle: "インテルの持続可能性の柱",
+      box1Title: "RISE戦略",
+      box1Text: "2020年、インテルはRISE（責任ある、包括的な、持続可能な、実現可能な）戦略を開始し、2030年の目標を共有しました。インテルは気候変動対策、水の管理、廃棄物削減において業界全体の進歩を推進することを目指していました。",
+      box2Title: "コミットメント",
+      box2Text: "RISE戦略の開始から2年以内に、インテルは約束された目標の基盤を築き始め、2040年までにグローバル事業全体で温室効果ガスのネットゼロ排出を達成するという野心的なコミットメントを発表しました。",
+      box3Title: "水と廃棄物",
+      box3Text: "インテルは毎年数十億ガロンの水を節約し、地域社会と協力して流域を回復させています。また、廃棄物を削減し循環型経済を推進するために材料をリサイクルしています。",
+      learnMore: "詳細を見る",
+      expandableHint: "ボックスをクリックして、インテルの持続可能性へのコミットメントについて詳しく学んでください。",
+      newsletterTitle: "最新情報をお届け",
+      newsletterSubtitle: "インテルのサステナビリティニュースレターに登録して最新情報をお受け取りください。",
+      emailPlaceholder: "メールアドレスを入力してください",
+      subscribeBtn: "登録する",
+      newsletterConfirmation: "✔ 登録完了！持続可能な未来へのご支援ありがとうございます。",
+      footerCopyright: "© 2024 Intel Corporation. 無断転載を禁じます。",
+      privacyPolicy: "プライバシーポリシー",
+      termsOfUse: "利用規約",
+      contactUs: "お問い合わせ",
+      sustainabilityReport: "サステナビリティレポート",
+      sitemap: "サイトマップ"
+    }
+  };
+
+  const rtlLanguages = ['ar', 'he'];
+
+  function applyLanguage(lang) {
+    const t = translations[lang];
+    if (!t) return;
+
+    currentLang = lang; // track current language
+
+    const html = document.documentElement;
+    if (rtlLanguages.includes(lang)) {
+      html.setAttribute('dir', 'rtl');
+    } else {
+      html.setAttribute('dir', 'ltr');
+    }
+    html.setAttribute('lang', lang);
+
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (t[key]) el.textContent = t[key];
+    });
+
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+      const key = el.getAttribute('data-i18n-placeholder');
+      if (t[key]) el.setAttribute('placeholder', t[key]);
+    });
+
+    // Update dropdown
+    document.querySelectorAll('.lang-option').forEach(opt => {
+      opt.classList.toggle('active', opt.getAttribute('data-lang') === lang);
+    });
+    document.getElementById('langLabel').textContent = lang.toUpperCase();
+
+    // Re-render the open timeline card in the new language if one is active
+    const activeBtn = document.querySelector('.timeline-point.active');
+    if (activeBtn) showCard(activeBtn.dataset.year);
+  }
+
+  // Dropdown toggle
+  document.getElementById('langSelected').addEventListener('click', (e) => {
+    e.stopPropagation();
+    document.getElementById('langSwitcher').classList.toggle('open');
+  });
+
+  // Close on outside click
+  document.addEventListener('click', () => {
+    document.getElementById('langSwitcher').classList.remove('open');
+  });
+
+  // Language option clicks
+  document.querySelectorAll('.lang-option').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      applyLanguage(btn.getAttribute('data-lang'));
+      document.getElementById('langSwitcher').classList.remove('open');
+    });
+  });
+</script>
+</body>
+</html>
